@@ -10,7 +10,6 @@ class Person
     @name = name_corrected.correct_name(name)
     @age = age
     @parent_permission = parent_permission
-    end
   end
 
   def can_use_services?
@@ -25,11 +24,3 @@ class Person
     @age > 18
   end
 end
-
-person = Person.new(5, 'carlos')
-pp person.name
-# Carlos
-
-guy = Person.new(5, 'sebastianosep')
-pp guy.name
-# Sebastiano
