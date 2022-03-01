@@ -25,10 +25,10 @@ class Person
   end
 end
 
-person  = Person.new(5,'carlos')
+person = Person.new(5, 'carlos')
 pp person.name
 # Carlos
 
-guy  = Person.new(5,'sebastianosep')
+guy = Person.new(5, 'sebastianosep')
 pp guy.name
 # Sebastiano
