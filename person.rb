@@ -1,10 +1,13 @@
+require './corrector'
+
 class Person
   attr_accessor :age, :name
   attr_reader :id
 
   def initialize(age, name = 'Unknown', parent_permission: true)
+    name_corrected = Corrector.new
     @id = Random.new.bytes(4)
-    @name = name
+    @name = name_corrected.correct_name(name)
     @age = age
     @parent_permission = parent_permission
   end
