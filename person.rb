@@ -10,6 +10,7 @@ class Person
     @name = name_corrected.correct_name(name)
     @age = age
     @parent_permission = parent_permission
+    end
   end
 
   def can_use_services?
