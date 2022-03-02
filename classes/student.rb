@@ -1,11 +1,13 @@
 require_relative 'person'
+require_relative 'classroom'
 
 class Student < Person
-  attr_reader :classroom
-  
-  def initialize(classroom, *args)
+  attr_accessor :classroom
+
+  def initialize(class_name, *args)
     super(*args)
-    @classroom = classroom
+    # classroom.add_student(self) if classroom.label == class_name
+    @classroom = class_name
   end
 
   def play_hooky
