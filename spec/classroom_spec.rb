@@ -24,12 +24,12 @@ describe 'Create classroom object' do
       expect(classroom.label).to match('Math')
       expect(classroom.students.count).to eql(1)
     end
-    it "add a new student to an existing classroom: Math" do
-      mathematics = Classroom.new("Math")
-      studentA = Student.new(mathematics, 5, 'Carlos')
+    it 'add a new student to an existing classroom: Math' do
+      mathematics = Classroom.new('Math')
+      student_a = Student.new(mathematics, 5, 'Carlos')
       expect(mathematics.students.count).to eql(1)
-      expect(mathematics.students.first.name).to eql("Carlos")
-      expect(studentA.classroom.label).to match('Math')
+      expect(mathematics.students.first.name).to eql('Carlos')
+      expect(student_a.classroom.label).to match('Math')
     end
   end
 end
