@@ -11,7 +11,7 @@ describe 'Create classroom object' do
     it 'asign an existing student to a new classroom: Math' do
       student_a = Student.new(nil, 5, 'Carlos')
       classroom = Classroom.new('Math')
-      classroom.add_student = (student_a)
+      classroom.add_student(student_a)
       expect(classroom.label).to match('Math')
       expect(classroom.students.first.name).to eql('Carlos')
       expect(student_a.classroom.label).to match('Math')
@@ -19,8 +19,8 @@ describe 'Create classroom object' do
     it 'do not asign twice an existing student to a new classroom: Math' do
       student_a = Student.new(nil, 5, 'Carlos')
       classroom = Classroom.new('Math')
-      classroom.add_student = (student_a)
-      classroom.add_student = (student_a)
+      classroom.add_student(student_a)
+      classroom.add_student(student_a)
       expect(classroom.label).to match('Math')
       expect(classroom.students.count).to eql(1)
     end

@@ -1,8 +1,7 @@
 require 'date'
 
 class Rental
-  attr_accessor :date
-  attr_reader :person, :book
+  attr_accessor :date, :person, :book
 
   def initialize(date, person, book)
     @date = Date.parse(date)
