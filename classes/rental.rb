@@ -7,5 +7,3 @@ class Rental
     @date = DateTime.now
   end
 end
-
-# pp Rental.new().date

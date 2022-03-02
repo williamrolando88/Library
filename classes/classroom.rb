@@ -1,7 +1,7 @@
 # Create the has-many/belongs-to relationship between Classroom and Student. The following should be implemented:
 # //     Create the has-many side (a classroom has many students).
 #     Create the belongs-to side (a student belongs to a classroom).
-# //     Make sure that when adding a student to a classroom it also sets the classroom for the student.
+#      Make sure that when adding a student to a classroom it also sets the classroom for the student.
 #     Make sure that when setting the classroom for a student it also adds it to the classrooms' students.
 # Create the many-to-many (also has-many-through) relationship between Person and Book using the intermediate class Rental. The following should be implemented:
 #     Create the has-many side of Book and Rental (a book has many rentals).
@@ -20,9 +20,7 @@ class Classroom
   end
 
   def add_student=(student)
-    return if @students.include?(student)
-
-    @students << student
-    student.classroom = label
+    @students << student unless @students.include?(student)
+    student.classroom = self
   end
 end
