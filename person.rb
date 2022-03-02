@@ -5,9 +5,8 @@ class Person
   attr_reader :id
 
   def initialize(age, name = 'Unknown', parent_permission: true)
-    name_corrected = Corrector.new
     @id = Random.new.bytes(4)
-    @name = name_corrected.correct_name(name)
+    @name = _name(name)
     @age = age
     @parent_permission = parent_permission
   end
@@ -22,5 +21,10 @@ class Person
 
   def of_age?
     @age > 18
+  end
+
+  def _name(name)
+    corrector = Corrector.new
+    corrector.correct_name(name)
   end
 end
