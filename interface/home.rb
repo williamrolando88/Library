@@ -25,30 +25,56 @@ class Home
     user_input = gets.chomp.to_i
     redirect(user_input)
   end
+  
+  private
 
   def redirect(value)
     case value
     when 1
       puts @books.books
-      return_home
+      home_page
     when 2
       puts @people.people
-      return_home
+      home_page
     when 3
       @people.add_people
-      return_home
+      home_page
     when 4
       @books.add_book
-      return_home
+      home_page
     when 5
+      create_rental
+      home_page
     when 6
     when 7
       exit?
     else
       puts "Please chose any of the given options\n"
-      return_home
+      home_page
     end
   end
+
+  def create_rental
+    puts 'Select a book from the following list by its index:'
+    @books.books_by_index
+    book_index = gets.chomp.to_i
+    puts "\n"
+    # Conditional to check valid input
+    book = @books.get_by_index(book_index)
+    
+    puts 'Select a person from the following list by its index (not ID):'
+    @people.people_by_index
+    person_index = gets.chomp.to_i
+    puts "\n"
+    # Conditional to check valid input
+    person = @people.get_by_index(person_index)
+
+    print 'Date (dd/mm/yyyy): '
+    date = gets.chomp
+
+    @rentals.add_rental(date, person, book)
+  end
+  
 
   def exit?
     print "Do you want to exit?\nPlease confirm [Y/N]:"
@@ -57,15 +83,10 @@ class Home
     when 'Y'
       puts "Have a nice day\n\n"
     when 'N'
-      return_home
+      home_page
     else
       puts "Select a valid option\n"
-      return_home
+      home_page
     end
-  end
-
-  def return_home
-    puts "\n"
-    home_page
   end
 end

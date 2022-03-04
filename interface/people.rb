@@ -21,15 +21,17 @@ class People
   end
 
   def people
-    @people.each do |person| 
-      "[#{person.role}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-    end
+    @people.map { |person| 
+      puts "[#{person.role}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
   end
   
   def people_by_index
-    @people.each_with_index do |person, index| 
-      puts "#{index}) #{person_details(person)}" 
-    end
+    @people.each_with_index.map { |person, index| 
+      puts "#{index}) [#{person.role}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+  end
+  
+  def get_by_index(index)
+    @people[index]
   end
   
 

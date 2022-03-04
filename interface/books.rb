@@ -26,15 +26,17 @@ class Books
   end
 
   def books
-    @books.each do |book| 
-      puts "Title: \"#{book.title}\", Author: #{book.author}"
-    end
+    @books.map { |book| 
+      puts "Title: \"#{book.title}\", Author: #{book.author}" }
+  
   end
   
   def books_by_index
-    @books.each_with_index do |book, index| 
-      puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
-    end
+    @books.each_with_index.map { |book, index| 
+      puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}" }
   end
-  
+
+  def get_by_index(index)
+    @books[index]
+  end
 end
