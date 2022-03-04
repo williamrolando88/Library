@@ -21,7 +21,7 @@ class People
   end
 
   def people
-    @people.map { |person, index| puts "[#{person.role}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+    @people.map { |person| person_details(person) }
   end
   
 
@@ -92,5 +92,9 @@ class People
     new_teacher = Teacher.new(specialization, age, name)
     @people << new_teacher
     puts "Person created succesfully\n"
+  end
+
+  def person_details(person)
+    puts "[#{person.role}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
   end
 end
