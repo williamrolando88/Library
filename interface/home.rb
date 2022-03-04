@@ -12,7 +12,7 @@ class Home
   end
 
   def home_page
-    home_str = "\nWelcome to School Library App
+    home_str = "Welcome to School Library App
     \nPlease choose an option by entering a number:\n" \
     "1 - List all books\n" \
     "2 - List all people\n" \
@@ -38,6 +38,8 @@ class Home
       @people.add_people
       return_home
     when 4
+      @books.add_book
+      return_home
     when 5
     when 6
     when 7
