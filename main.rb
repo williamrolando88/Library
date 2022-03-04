@@ -4,4 +4,4 @@ def main
   Home.new.home_page
 end
 
-main()
+main

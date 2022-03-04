@@ -1,4 +1,16 @@
+require_relative 'books'
+require_relative 'people'
+require_relative 'rentals'
+
 class Home
+  attr_reader :books, :people, :rentals
+
+  def initialize
+    @books = Books.new
+    @people = People.new
+    @rentals = Rentals.new
+  end
+
   def home_page
     home_str = "\nWelcome to School Library App
     \nPlease choose an option by entering a number:\n" \
@@ -16,6 +28,18 @@ class Home
 
   def redirect(value)
     case value
+    when 1
+      puts @books.books
+      return_home
+    when 2
+      puts @people.people
+      return_home
+    when 3
+      @people.add_people
+      return_home
+    when 4
+    when 5
+    when 6
     when 7
       exit?
     else
@@ -23,14 +47,14 @@ class Home
       return_home
     end
   end
-  
+
   def exit?
-    puts "Do you want to exit?\nPlease confirm [Y/N]:"
+    print "Do you want to exit?\nPlease confirm [Y/N]:"
     input = gets.chomp.upcase
-    if input == "Y"
-      puts "Have a nice day"
-      return
-    elsif input == "N"
+    case input
+    when 'Y'
+      puts "Have a nice day\n\n"
+    when 'N'
       return_home
     else
       puts "Select a valid option\n"
@@ -42,6 +66,4 @@ class Home
     puts "\n"
     home_page
   end
-  
-  
 end

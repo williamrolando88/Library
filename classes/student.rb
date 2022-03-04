@@ -1,14 +1,11 @@
 require_relative 'person'
-# require_relative 'classroom'
 
 class Student < Person
-  attr_accessor :classroom
+  attr_reader :role
 
-  # def initialize(classroom = nil, *args)
   def initialize(*args)
     super(*args)
-    # @classroom = classroom
-    # classroom.students << self unless classroom.nil?
+    @role = 'Student'
   end
 
   def play_hooky
