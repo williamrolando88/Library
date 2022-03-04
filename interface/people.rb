@@ -21,7 +21,15 @@ class People
   end
 
   def people
-    @people.map { |person| person_details(person) }
+    @people.each do |person| 
+      "[#{person.role}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+  end
+  
+  def people_by_index
+    @people.each_with_index do |person, index| 
+      puts "#{index}) #{person_details(person)}" 
+    end
   end
   
 
@@ -95,6 +103,6 @@ class People
   end
 
   def person_details(person)
-    puts "[#{person.role}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    puts 
   end
 end
