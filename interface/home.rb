@@ -46,6 +46,10 @@ class Home
       create_rental
       home_page
     when 6
+      print "ID of person: "
+      id = gets.chomp.to_i
+      @people.get_rentals_by_id(id)
+      home_page
     when 7
       exit?
     else
@@ -59,14 +63,12 @@ class Home
     @books.books_by_index
     book_index = gets.chomp.to_i
     puts "\n"
-    # Conditional to check valid input
     book = @books.get_by_index(book_index)
     
     puts 'Select a person from the following list by its index (not ID):'
     @people.people_by_index
     person_index = gets.chomp.to_i
     puts "\n"
-    # Conditional to check valid input
     person = @people.get_by_index(person_index)
 
     print 'Date (dd/mm/yyyy): '

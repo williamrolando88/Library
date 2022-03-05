@@ -33,6 +33,16 @@ class People
   def get_by_index(index)
     @people[index]
   end
+
+  def get_rentals_by_id(id)
+    @people.map {  |person|
+      if person.id == id
+        person.rentals.map { |rental|
+          puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author} "
+        }
+      end
+    }
+  end
   
 
   private
