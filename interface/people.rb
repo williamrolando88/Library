@@ -21,29 +21,30 @@ class People
   end
 
   def people
-    @people.map { |person| 
-      puts "[#{person.role}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+    @people.map do |person|
+      puts "[#{person.role}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
   end
-  
+
   def people_by_index
-    @people.each_with_index.map { |person, index| 
-      puts "#{index}) [#{person.role}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+    @people.each_with_index.map do |person, index|
+      puts "#{index}) [#{person.role}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
   end
-  
+
   def get_by_index(index)
     @people[index]
   end
 
   def get_rentals_by_id(id)
-    @people.map {  |person|
-      if person.id == id
-        person.rentals.map { |rental|
-          puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author} "
-        }
+    @people.map do |person|
+      next unless person.id == id
+
+      person.rentals.map do |rental|
+        puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author} "
       end
-    }
+    end
   end
-  
 
   private
 
@@ -71,12 +72,13 @@ class People
       print 'Please select a valid option [Y/N]: '
       parent_permission = gets.chomp.upcase
     end
-    if parent_permission == "Y"
+    case parent_permission
+    when 'Y'
       parent_permission = true
-    elsif parent_permission == 'N'
+    when 'N'
       parent_permission = false
     end
-  
+
     # Creates a new student object and pushes inside
     new_student = Student.new(age, name, parent_permission)
     @people << new_student
@@ -91,7 +93,7 @@ class People
       print 'Please type a valid name: '
       name = gets.chomp
     end
-    
+
     # Request for an age and validates it to be a number
     print 'Age: '
     age = gets.chomp.to_i
@@ -99,7 +101,7 @@ class People
       print 'Please type a valid age: '
       age = gets.chomp.to_i
     end
-    
+
     # Request for a specialization and validates it to not be empty
     print 'Specialization: '
     specialization = gets.chomp
@@ -114,7 +116,7 @@ class People
     puts "Person created succesfully\n"
   end
 
-  def person_details(person)
-    puts 
+  def person_details(_person)
+    puts
   end
 end

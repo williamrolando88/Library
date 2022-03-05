@@ -25,7 +25,7 @@ class Home
     user_input = gets.chomp.to_i
     redirect(user_input)
   end
-  
+
   private
 
   def redirect(value)
@@ -46,7 +46,7 @@ class Home
       create_rental
       home_page
     when 6
-      print "ID of person: "
+      print 'ID of person: '
       id = gets.chomp.to_i
       @people.get_rentals_by_id(id)
       home_page
@@ -64,7 +64,7 @@ class Home
     book_index = gets.chomp.to_i
     puts "\n"
     book = @books.get_by_index(book_index)
-    
+
     puts 'Select a person from the following list by its index (not ID):'
     @people.people_by_index
     person_index = gets.chomp.to_i
@@ -76,7 +76,6 @@ class Home
 
     @rentals.add_rental(date, person, book)
   end
-  
 
   def exit?
     print "Do you want to exit?\nPlease confirm [Y/N]:"

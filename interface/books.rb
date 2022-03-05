@@ -22,18 +22,19 @@ class Books
 
     book = Book.new(title, author)
     @books << book
-    puts "Book created succesfully"
+    puts 'Book created succesfully'
   end
 
   def books
-    @books.map { |book| 
-      puts "Title: \"#{book.title}\", Author: #{book.author}" }
-  
+    @books.map do |book|
+      puts "Title: \"#{book.title}\", Author: #{book.author}"
+    end
   end
-  
+
   def books_by_index
-    @books.each_with_index.map { |book, index| 
-      puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}" }
+    @books.each_with_index.map do |book, index|
+      puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
+    end
   end
 
   def get_by_index(index)

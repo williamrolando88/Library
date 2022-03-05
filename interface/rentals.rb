@@ -12,5 +12,4 @@ class Rentals
     @rentals << new_rental
     puts "Rental created succesfully\n"
   end
-  
 end
