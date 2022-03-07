@@ -5,11 +5,11 @@ class Person
   attr_accessor :age, :name, :rentals
   attr_reader :id
 
-  def initialize(age, name = 'Unknown', parent_permission: true)
-    @id = Random.new.bytes(4)
+  def initialize(age, name = 'Unknown', parent_permission = true)
     @name = validate_names(name)
     @age = age
     @parent_permission = parent_permission
+    @id = rand 0..999
     @rentals = []
   end
 
